@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter/Éditer une Déclaration</title>
+    <!-- Ajoutez les liens vers les fichiers CSS de Bootstrap ici -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Ajouter/Éditer une Déclaration</h1>
+    <form th:object="${declaration}" th:action="@{/declarations/add}" method="post" class="mt-3">
+        <div class="form-group">
+            <label for="dateDeclaration">Date de Déclaration</label>
+            <input type="date" th:field="*{dateDeclaration}" class="form-control" id="dateDeclaration">
+        </div>
+        <div class="form-group">
+            <label for="montantDeclaration">Montant de Déclaration</label>
+            <input type="number" th:field="*{montantDeclaration}" class="form-control" id="montantDeclaration" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="declarant">Déclarant</label>
+            <select th:field="*{declarant}" class="form-control" id="declarant">
+                <option th:each="d : ${declarants}" th:value="${d}" th:text="${d.raisonSociale}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter/Éditer</button>
+    </form>
+</div>
+<!-- Ajoutez les liens vers les fichiers JavaScript de Bootstrap ici -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>

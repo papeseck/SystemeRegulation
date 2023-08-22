@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Déclarations</title>
+    <!-- Ajoutez les liens vers les fichiers CSS de Bootstrap ici -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Liste des Déclarations</h1>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th scope="col">Date de Déclaration</th>
+            <th scope="col">Montant de Déclaration</th>
+            <th scope="col">Déclarant</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="declaration : ${declarations}">
+            <td th:text="${declaration.dateDeclaration}"></td>
+            <td th:text="${declaration.montantDeclaration}"></td>
+            <td th:text="${declaration.declarant.raisonSociale}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Ajoutez les liens vers les fichiers JavaScript de Bootstrap ici -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>
